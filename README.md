@@ -47,13 +47,6 @@ integration *inside* the game loop itself, not as a chatbot on the side:
   for prediction (WASM), same forces both sides
 - **Client-side prediction** — the browser runs the identical physics in WASM,
   masking latency for a smooth experience even on poor connections
-- **Metabolism model** — mass is energy: movement and punches cost mass proportional
-  to `(mass/100)^1.3`, so turtling loses and hunting wins
-- **Devour mechanic** — genre finisher: attacker 3x heavier grabs the victim
-  (GRAB → HOLD → GULP), victim can counter or escape during wind-up
-- **Adrenaline escape** — taking damage grants a short boost window (prey counterplay)
-- **Coin glasses (sponsor mechanic)** — food fills a coin's glass; a full glass bursts
-  into mass and grows capacity
 - **Platform integration (IPFPS)** — one identity across tenants, season XP, global
   leaderboard, crypto top-ups via platform escrow
 - **Bots & load testing** — built-in bot client used to validate 100+ concurrent players
