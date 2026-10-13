@@ -1,6 +1,6 @@
 # Tusslepuffs
 
-**A real-time multiplayer island brawler with an on-chain economy backbone.**
+**An AI-native take on the .io genre with an on-chain economy backbone.**
 Built for the [Crypto World's Fair Hackathon](https://www.colosseum.com/) on the [IPFPS](https://ipfps.org) platform.
 
 🎮 **Live demo: https://tusslepuffs.chernovteam.dev**
@@ -9,20 +9,44 @@ Built for the [Crypto World's Fair Hackathon](https://www.colosseum.com/) on the
 
 ## What is it
 
-Tusslepuffs is a browser-based 3D multiplayer arena game: grow your puff by eating,
-fight with momentum-based punches, hunt down smaller players — or run for your life.
-NPC boxers roam the island so the world is alive even with few humans online.
+Tusslepuffs is a browser-based 3D multiplayer game in the popular **.io genre**:
+a near-zero learning curve — you eat, you grow, you brawl — on top of a
+genuinely deep competitive stack. NPC boxers roam the island so the world is
+alive even with few humans online.
 
-The crypto angle is not a bolt-on token: the game is integrated into the **IPFPS**
-platform as a first-class tenant — platform accounts, server-authoritative scoring,
-season leaderboards and crypto deposits (USDC/SOL) handled by the platform's
-double-entry ledger and escrow wallets.
+We bet on technology, an AI-native approach, and we believe in blockchain:
+
+- **Under the hood** — a powerful authoritative server: 3D physics in **Rust**
+  (Rapier3D, 60 Hz) and battle-tested networking in **Go** (20 TPS game loop,
+  binary protobuf over WebSocket).
+- **Comfortable on bad internet** — the client runs the same physics engine
+  compiled to **WASM** as a predictor, smoothing over network latency so the
+  game stays responsive even on a weak connection.
+- **On-chain economy** — not a bolt-on token: the game is a first-class tenant
+  of the **IPFPS** platform — platform accounts, server-authoritative scoring,
+  season leaderboards and crypto deposits (USDC/SOL) handled by the platform's
+  double-entry ledger and escrow wallets.
+
+## Vision: gameplay depth through LLMs
+
+The .io formula gives instant fun; depth comes next. Our roadmap takes LLM
+integration *inside* the game loop itself, not as a chatbot on the side:
+
+- **Generative items** — LLM-generated objects and equipment for players,
+  created on demand and validated server-side
+- **Safe world modification** — players can ask the world to change (terrain,
+  weather, events), with the authoritative server constraining every change so
+  the game stays fair and deterministic
+- **Persistent memory** — the world remembers: seasons, grudges and legends
+  carried across sessions
 
 ## Key features
 
 - **Server-authoritative multiplayer** — 20 TPS game loop, binary WebSocket protocol
 - **Real physics** — Rapier3D simulated server-side (Rust, 60 Hz) *and* client-side
   for prediction (WASM), same forces both sides
+- **Client-side prediction** — the browser runs the identical physics in WASM,
+  masking latency for a smooth experience even on poor connections
 - **Metabolism model** — mass is energy: movement and punches cost mass proportional
   to `(mass/100)^1.3`, so turtling loses and hunting wins
 - **Devour mechanic** — genre finisher: attacker 3x heavier grabs the victim
