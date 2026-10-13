@@ -1,0 +1,23 @@
+[Unit]
+Description=Tusslepuffs Backend Server
+After=network.target tusslepuffs-rapier.service
+Requires=tusslepuffs-rapier.service
+
+[Service]
+Type=simple
+# Uncomment to run under a dedicated unprivileged user (create it first):
+#User=tusslepuffs
+WorkingDirectory=/opt/tusslepuffs
+Environment="SERVER_HOST=0.0.0.0"
+Environment="SERVER_PORT=8181"
+Environment="PHYSICS_SERVER_ADDR=localhost:50052"
+Environment="DEV_MODE=false"
+Environment="LOG_LEVEL=info"
+Environment="STATIC_DIR=/opt/tusslepuffs/dist"
+ExecStartPre=/bin/sleep 3
+ExecStart=/opt/tusslepuffs/server
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

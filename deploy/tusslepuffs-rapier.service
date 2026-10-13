@@ -1,0 +1,15 @@
+[Unit]
+Description=Tusslepuffs Rapier Physics Server
+After=network.target
+
+[Service]
+Type=simple
+# Uncomment to run under a dedicated unprivileged user (create it first):
+#User=tusslepuffs
+WorkingDirectory=/opt/tusslepuffs
+ExecStart=/opt/tusslepuffs/rapier-server
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
